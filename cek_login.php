@@ -37,7 +37,8 @@ if(!ctype_alnum($injeksi_username) OR !ctype_alnum($injeksi_password)){
     $id_baru = session_id();
     mysqli_query($conn, "UPDATE users SET id_session ='$id_baru' WHERE username = '$username'");
 
-    echo "Selamat login berhasil";
+    // echo "Selamat login berhasil";
+    header("location:media.php?module=dashboard");
   }
   else{
     echo "Login gagal username dan password salah<br>";

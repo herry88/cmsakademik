@@ -1,3 +1,14 @@
+<?php
+  session_start();
+  //apabila user blm login
+  if(empty($_SESSION['namauser']) AND empty($_SESSION['passuser'])){
+    echo "<center>
+        <h3>Untuk Mengakses halaman ini anda harus login dahulu</h3>
+        <br>
+        <a href=\"index.php\"><h3>Halaman Login</h3></a>
+    </center>";
+  } else{
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1504,3 +1515,4 @@
 <script src="dist/js/pages/dashboard.js"></script>
 </body>
 </html>
+<?php } ?>
