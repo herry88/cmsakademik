@@ -20,6 +20,13 @@
       }
     }
 
+    //akses halaman modul
+    elseif($_GET['module'] =='pagemodul'){
+      if($_SESSION['level']=='admin'){
+        include "modul/mod_modul/modul.php";
+      }
+    }
+
     else{
       echo "
       <div class=\"content-wrapper\">
