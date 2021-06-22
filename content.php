@@ -26,6 +26,13 @@
         include "modul/mod_modul/modul.php";
       }
     }
+    
+    //akses halaman Guru 
+    elseif($_GET['module']=='pageguru'){
+      if($_SESSION['level']=='admin'){
+        include "modul/mod_guru/guru.php";
+      }
+    }
 
     else{
       echo "
