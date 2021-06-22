@@ -45,27 +45,27 @@ if (empty(['namauser']) and empty(['passuser'])) {
             <table class='table table-bordered'>
             <thead>
             <tr>
-                <th>Urutan Modul</th>
-                <th>Nama Modul</th>
-                <th>Link</th>
-                <th>Aktif</th>
+                <th>No</th>
+                <th>Nama Tahun Akademik</th>
+                <th>Keterangan</th>
                 <th>Tools</th>
             </tr>
             </thead>";
         //query sql tampil data
-        $query = "SELECT * FROM modul ORDER BY urutan";
+        $query = "SELECT * FROM tahun_akademik ORDER BY id_tahun_akademik";
         $tampil = mysqli_query($conn, $query);
+        $no=1;
         while ($t = mysqli_fetch_array($tampil)) {
           echo "<tbody>
               <tr>
-                  <td class='text-center'>$t[urutan]</td>
-                  <td>$t[nama_modul]</td>
-                  <td>$t[link]</td>
-                  <td>$t[aktif]</td>
-                  <td><a href='?module=pagemodul&act=editmodul&id=$t[id_modul]' title='Edit' class='btn btn-warning text-white'><i class='fa fa-edit'></i>Edit</a>
-                    <a href='$aksi?module=pagemodul&act=hapus&id=$t[id_modul]' title='Delete' class='btn btn-danger text-white'><i class='fa fa-trash'></i></a>
+                  <td class='text-center'>$no</td>
+                  <td>$t[nama_tahun_akademik]</td>
+                  <td>$t[keterangan]</td>
+                  <td><a href='#' title='Edit' class='btn btn-warning text-white'><i class='fa fa-edit'></i>Edit</a>
+                    <a href='#' title='Delete' class='btn btn-danger text-white'><i class='fa fa-trash'></i></a>
                   </td>
               </tr>";
+              $no++;
         }
 
         echo "
@@ -77,24 +77,24 @@ if (empty(['namauser']) and empty(['passuser'])) {
 
         break;
 
-        //halaman tambah data modul
+        //halaman tambah data tahun akademik
       case "tambahakademik":
         echo "
         <section class=\"content\">
         <div class=\"card\">
           <div class=\"card-header\">
-            <h3 class=\"card-title\">Halaman Tambah Modul</h3>
+            <h3 class=\"card-title\">Halaman Tambah Akademik</h3>
           </div>
           <div class=\"card-body\">
-              <form action='$aksi?module=pagemodul&act=input' method='POST'>
+              <form action='$aksi?module=pagetahunakademik&act=input' method='POST'>
                   <table class='table table-bordered'>
                       <tr>
-                        <td>Nama Modul :</td>
-                        <td><input type='text' name='nama_modul' class='form-control' autocomplete='off'></td>
+                        <td>Nama Tahun Akademik :</td>
+                        <td><input type='text' name='nama_tahun_akademik' class='form-control' autocomplete='off'></td>
                       </tr>
                       <tr>
-                        <td>Link :</td>
-                        <td><input type='text' name='link' class='form-control' autocomplete='off'></td>
+                        <td>Keterangan :</td>
+                        <td><input type='text' name='keterangan' class='form-control' autocomplete='off'></td>
                       </tr>
                       <tr>
                         <td></td>
