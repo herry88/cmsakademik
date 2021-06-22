@@ -26,7 +26,14 @@
         include "modul/mod_modul/modul.php";
       }
     }
-    
+
+    //akses halaman Tahun Akademik 
+    elseif($_GET['module']=='pagetahunakademik'){
+      if($_SESSION['level']=='admin'){
+        include "modul/mod_tahun_akademik/tahun_akademik.php";
+      }
+    }
+
     //akses halaman Guru 
     elseif($_GET['module']=='pageguru'){
       if($_SESSION['level']=='admin'){
