@@ -66,7 +66,6 @@ if (empty(['namauser']) and empty(['passuser'])) {
                   <td>$t[golongan]</td>
                   <td>$t[id_tahun_akademik]</td>
                   <td>$t[status]</td>
-                  <td>$t[aktif]</td>
                   <td><a href='#' title='Edit' class='btn btn-warning text-white'><i class='fa fa-edit'></i>Edit</a>
                     <a href='#' title='Delete' class='btn btn-danger text-white'><i class='fa fa-trash'></i></a>
                   </td>
@@ -92,23 +91,39 @@ if (empty(['namauser']) and empty(['passuser'])) {
             <h3 class=\"card-title\">Halaman Tambah Guru</h3>
           </div>
           <div class=\"card-body\">
-              <form action='#' method='POST'>
+              <form action='$aksi?module=pageguru&act=input' method='POST'>
                   <table class='table table-bordered'>
                       <tr>
                         <td>Nama Guru :</td>
-                        <td><input type='text' name='nama_modul' class='form-control' autocomplete='off'></td>
+                        <td><input type='text' name='nama_guru' class='form-control' autocomplete='off'></td>
                       </tr>
                       <tr>
                         <td>Golongan :</td>
-                        <td><input type='text' name='link' class='form-control' autocomplete='off'></td>
+                        <td><input type='text' name='golongan' class='form-control' autocomplete='off'></td>
                       </tr>
                       <tr>
                         <td>Tahun Akademik :</td>
-                        <td><input type='text' name='link' class='form-control' autocomplete='off'></td>
+                        <td>
+                            <select name='tahun_akademik' class='form-control'>
+                                <option value='0'>-Pilih Data-</option>";
+                                $query = mysqli_query($conn, "SELECT * FROM tahun_akademik WHERE id_tahun_akademik");
+                                while($g = mysqli_fetch_array($query)){
+                                    echo "<option value='$g[id_tahun_akademik]'>$g[nama_tahun_akademik]</option>";
+                                }
+
+                        echo"        
+                            </select>
+                        </td>
                       </tr>
                       <tr>
                         <td>Status :</td>
-                        <td><input type='text' name='link' class='form-control' autocomplete='off'></td>
+                        <td>
+                            <select name='status' class='form-control'>
+                                <option value='0'>--Pilih Data--</option>
+                                <option value='aktif'>Aktif</option>
+                                <option value='tidak aktif'>Tidak Aktif</option>
+                            </select>
+                        </td>
                       </tr>
                       <tr>
                         <td></td>
