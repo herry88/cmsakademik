@@ -125,6 +125,7 @@ if (empty(['namauser']) and empty(['passuser'])) {
                             </select>
                         </td>
                       </tr>
+                      
                       <tr>
                         <td></td>
                         <td>

@@ -41,6 +41,13 @@
       }
     }
 
+    //modul gallery foto
+    elseif($_GET['module']=='pagegallery'){
+      if($_SESSION['level']=='admin'){
+        include"modul/mod_gallery/gallery.php";
+      }
+    }
+
     else{
       echo "
       <div class=\"content-wrapper\">
